@@ -1,3 +1,4 @@
+
 # Equipment Failure Risk Analytics — Synthetic Industrial Data
 
 A reproducible, locally runnable reference implementation for generating industrial equipment data, validating it, estimating equipment risk, and evaluating decisions against separately stored synthetic ground truth.
@@ -98,3 +99,4 @@ The evaluation command reports confusion-matrix counts, precision, recall, F1, a
 The risk engine is an explainable heuristic, not a trained predictive model. For each machine it scores configured temperature, vibration, and current exceedances; upward drift in time-ordered sensor readings; and high variability as a supporting signal. Sensor contributions and total score are capped, and decisions are `LOW` (<20), `MEDIUM` (20–39.99), or `HIGH` (>=40). Unknown sensors, impossible ranges, zero-imputed records, and readings during shutdown/maintenance are excluded from risk evidence and are handled separately by validation.
 
 A local starter evaluation with seed `20261022`, 20 machines, 12,000 telemetry rows, and 90 days produced precision **0.5833**, recall **0.5833**, and F1 **0.5833** at the machine level (7 true positives, 5 false positives, 5 false negatives). These are synthetic-data results only, not real-world performance. Thresholds should be selected based on operational cost of missed failures versus unnecessary inspections; do not claim the heuristic is production-validated.
+
